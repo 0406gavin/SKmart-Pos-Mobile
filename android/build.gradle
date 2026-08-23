@@ -1,0 +1,101 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.13.0'
+        classpath 'com.google.gms:google-services:4.4.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${project.hasProperty('kotlin_version') ? rootProject.ext.kotlin_version : '2.2.20'}"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+apply from: "variables.gradle"
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// Global Java 17 LTS configuration across all modules (including Capacitor Kotlin plugins)
+subprojects {
+    // 1. Android extension compileOptions override
+    afterEvaluate { project ->
+        if (project.hasProperty('android')) {
+            project.android {
+                compileOptions {
+                    sourceCompatibility = JavaVersion.VERSION_17
+                    targetCompatibility = JavaVersion.VERSION_17
+                }
+            }
+        }
+
+        // 2. Kotlin Toolchain & Extension override in afterEvaluate (overrides any jvmToolchain(21) in plugins)
+        if (project.plugins.hasPlugin('kotlin-android') ||
+            project.plugins.hasPlugin('org.jetbrains.kotlin.android') ||
+            project.plugins.hasPlugin('kotlin') ||
+            project.hasProperty('kotlin') ||
+            project.extensions.findByName('kotlin') != null) {
+            try {
+                project.kotlin {
+                    jvmToolchain(17)
+                }
+            } catch (Exception e1) {
+                try {
+                    project.extensions.configure('kotlin') { ext ->
+                        ext.jvmToolchain(17)
+                    }
+                } catch (Exception e2) {}
+            }
+        }
+    }
+
+    // 3. JavaCompile tasks override (strips any --release 21 compiler flags)
+    tasks.withType(JavaCompile).configureEach {
+        sourceCompatibility = JavaVersion.VERSION_17.toString()
+        targetCompatibility = JavaVersion.VERSION_17.toString()
+        options.encoding = 'UTF-8'
+        if (options.hasProperty('release') && options.release.isPresent()) {
+            options.release.set(17)
+        }
+    }
+
+    // 4. Kotlin compile tasks override (guarantees JVM 17 bytecode output matching Java 17)
+    tasks.matching { it.name.contains("Kotlin") || (it.name.startsWith("compile") && it.name.endsWith("Kotlin")) }.configureEach { task ->
+        if (task.hasProperty('compilerOptions')) {
+            try {
+                task.compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+            } catch (Exception ignored) {
+                try {
+                    task.compilerOptions.jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
+                } catch (Exception ignored2) {}
+            }
+        }
+        if (task.hasProperty('kotlinOptions')) {
+            try {
+                task.kotlinOptions.jvmTarget = '17'
+            } catch (Exception ignored) {}
+        }
+    }
+
+    // 5. Java Toolchain override
+    plugins.withId('java') {
+        java {
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(17)
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

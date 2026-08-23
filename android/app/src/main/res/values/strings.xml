@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">SKmart POS</string>
+    <string name="title_activity_main">SKmart POS</string>
+    <string name="package_name">com.skmart.pos</string>
+    <string name="custom_url_scheme">com.skmart.pos</string>
+</resources>
