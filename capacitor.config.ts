@@ -1,0 +1,25 @@
+import type { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'com.skmart.pos',
+  appName: 'SKmart POS',
+  webDir: 'dist',
+  server: {
+    androidScheme: 'https',
+    cleartext: true
+  },
+  plugins: {
+    CapacitorHttp: {
+      enabled: true
+    },
+    SplashScreen: {
+      launchShowDuration: 0,
+      launchAutoHide: true,
+      backgroundColor: "#071E15",
+      androidSplashResourceName: "splash",
+      showSpinner: false
+    }
+  }
+};
+
+export default config;

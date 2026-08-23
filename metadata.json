@@ -1,0 +1,6 @@
+{
+  "name": "SKmart POS",
+  "description": "SKmart POS - Commercial Offline Grocery POS & Inventory Management System",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
