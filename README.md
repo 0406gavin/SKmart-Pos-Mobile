@@ -4,6 +4,13 @@ A commercial-grade, 100% offline Android Point of Sale (POS), Stock Batch Invent
 
 ---
 
+## 🌐 Downloads
+
+- 🌍 **Official Website:** https://ppl-call-me-sk.web.app
+- 📦 **Latest GitHub Release:** https://github.com/PplCallMeSk-15/SKmart-Pos-Mobile/releases
+
+---
+
 ## 📸 Screenshots
 
 | Mobile POS Billing & Dynamic Cart | Live Camera Barcode Scanning with MLKit/ZXing |
